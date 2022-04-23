@@ -9,34 +9,20 @@ function App(){
   const[query , setQuery] = useState("")
   const[robots ,setRobot] = useState([])
   const[isPending ,setisPending] = useState(true)
-  const[error ,setError] = useState(null)
 
 
   const url = `http://localhost:8080/robots/${query}`
   
-
-  const fetchData = async() => {
-    const res = await fetch(url);
-    const jsonData = await res.json();
-    const data = setRobot(data)
+  const fetchData = async () => {
+    const response = await fetch(url);
+    const res = await response.json()
+     setRobot(res)
   } 
 
-   useEffect(() => {
-   fetch(url)
-   .then(res => {
-     return res.json() 
-   })
-   .then(data => {
-     if(data.length < 0){
-       throw Error('Data not Found')
-     }
-     setRobot(data)
-   }).catch(e => {
-    setError(e.response)
-
-   })
-    
+  useEffect(() => {
+    fetchData()
   }, []);
+ 
 
    const handleSearch = ({target})=> {
     setQuery(target.value)      
@@ -56,9 +42,8 @@ function App(){
   return (
     <div>
       <h1>Monster Rolodex</h1>
-      {error && <div className='Error'><h3>{error}</h3></div>}
       <SearchBox handleSearch={handleSearch} />
-      {robots && <Cardlist users={filteredRobots} handleDelete={handleDelete}  />}
+      <Cardlist users={filteredRobots} handleDelete={handleDelete}  />
     </div>
   )
     
