@@ -14,6 +14,13 @@ function App(){
 
   const url = `http://localhost:8080/robots/${query}`
   
+
+  const fetchData = async() => {
+    const res = await fetch(url);
+    const jsonData = await res.json();
+    const data = setRobot(data)
+  } 
+
    useEffect(() => {
    fetch(url)
    .then(res => {
