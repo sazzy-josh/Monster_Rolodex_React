@@ -6,7 +6,9 @@ import './cardlist.style.css'
 const Cardlist = ({users,handleDelete}) => {
     return (  
         <div className="cardlist">
-         <Card data={users} handleDelete={handleDelete} />
+         {data.length > 0 ?<Card data={users} handleDelete={handleDelete} /> :
+         <h3>No data</h3>
+         }
         </div>
         
     );

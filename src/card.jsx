@@ -1,8 +1,8 @@
 const Card = ({data,handleDelete}) => {
     return ( 
-      <>
-      { data.length > 0 ?
-          ( data.map((user , i) => {
+      
+     
+           data.map((user , i) => {
               const {name , email ,id} = user
                 return (
                     <div key={id} className="card">
@@ -13,14 +13,8 @@ const Card = ({data,handleDelete}) => {
                        <button onClick={() => {handleDelete(id)}}>Delete</button>
                       </div> 
                     </div> 
-                )
-            })
-          ):
-          <h3>Ooops!!No Such Robot Found</h3>
-       }
-      
-      </>
-        
-            )}
+              )
+        })
+    )}
  
 export default Card;
