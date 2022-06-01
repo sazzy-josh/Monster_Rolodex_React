@@ -50,7 +50,7 @@ function App(){
     <div>
       <h1>Monster Rolodex</h1>
       <SearchBox handleSearch={handleSearch} />
-     {!isPending ? <Cardlist users={filteredRobots} handleDelete={handleDelete}  /> : <Loader type="cylon" color="brown" /> }
+     {!isPending ? <Cardlist users={filteredRobots} handleDelete={handleDelete}  /> : <Loader type="spin" color="grey" /> }
     </div>
   )
     
