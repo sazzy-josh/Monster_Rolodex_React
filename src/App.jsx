@@ -13,12 +13,13 @@ function App(){
   const[isPending ,setisPending] = useState(true)
 
 
-  const url = `http://localhost:8080/robots/${query}`
+  const url = `https://jsonplaceholder.typicode.com/users/`
   
   const fetchData = async () => {
     setisPending(true)
     const response = await fetch(url);
     const res = await response.json()
+    console.log(res)
     setisPending(false)
     setRobot(res)
     
@@ -27,7 +28,7 @@ function App(){
   useEffect(() => {
    setTimeout(() => {
     fetchData()
-   },5000)
+   },0)
   }, []);
  
 
@@ -50,7 +51,7 @@ function App(){
     <div>
       <h1>Monster Rolodex</h1>
       <SearchBox handleSearch={handleSearch} />
-     {!isPending ? <Cardlist users={filteredRobots} handleDelete={handleDelete}  /> : <Loader type="spin" color="grey" /> }
+     {!isPending ? <Cardlist users={filteredRobots} handleDelete={handleDelete}  /> : <Loader type="cylon" color="grey" /> }
     </div>
   )
     
