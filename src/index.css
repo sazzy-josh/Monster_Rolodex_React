@@ -25,3 +25,15 @@ body {
 .img-container{
   width: 100%;
 }
+.center-text{
+  text-align: center;
+  margin-top: 150px;
+ 
+}
+
+.error{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -5,10 +5,10 @@ import './cardlist.style.css'
 
 const Cardlist = ({users,handleDelete}) => {
     return (  
-        <div className="cardlist">
+        <div>
         {users && <>
-            {users.length > 0 ?<Card data={users} handleDelete={handleDelete} /> :
-         <h3>Ooops!! 😯 Couldn't Find Such Robot</h3>
+            {users.length > 0 ? <div className="cardlist"><Card data={users} handleDelete={handleDelete} /></div> :
+        <div className="error"> <h3 className="center-text">Ooops!! 😯 Couldn't Find Such Robot</h3></div>
          }
         </> }
         </div>
